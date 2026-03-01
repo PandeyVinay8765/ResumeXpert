@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
 export const connectDB=async()=>{
-    await mongoose.connect('mongodb+srv://pandeyjivinay8765_db_user:resume123@cluster0.ftwmmd1.mongodb.net/ResumeXpert')
+    await mongoose.connect(process.env.DB_URL)
     .then(()=>console.log("DB CONNECTED :)"))
 
 }
