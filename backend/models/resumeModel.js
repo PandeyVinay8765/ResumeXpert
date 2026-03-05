@@ -32,5 +32,44 @@ const ResumeSchema=new mongoose.Schema({
         linkedIn:String,
         github:String,
         website:String,
-    }
-})
+    },
+    workExperience:[{
+        company:String,
+        role:String,
+        startDate:String,
+        endDate:String,
+        description:String}
+    ],
+    education:[{
+        degree:String,
+        institution:String,
+        startDate:String,
+        endDate:String,}
+
+    ],
+    skills:[{
+        name:String,
+        progress:Number}
+    ],
+    projects:[{
+        title:String,
+        description:String,
+        github:String,
+        liveDemo:String,}
+
+    ],
+    certification:[{
+        title:String,
+        issue:String,
+        year:String,}
+    ],
+    languages:[{
+        name:String,
+        progress:Number,
+    }],
+    interests:[String]
+
+},{
+    timestamps:{createdAt:"createdAt",updatedAt:"updatedAt"}
+});
+export default mongoose.model('Resume',ResumeSchema);

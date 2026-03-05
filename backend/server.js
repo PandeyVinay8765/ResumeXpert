@@ -9,9 +9,10 @@ const app=express()
 const PORT=4000;
 app.use(cors())
 connectDB();
-app.use('api/auth',userRouter)
 
 app.use(express.json());
+app.use('/api/auth',userRouter)
+
 app.get('/',(req,res)=>{
     res.send('Api working on brave')
 })
