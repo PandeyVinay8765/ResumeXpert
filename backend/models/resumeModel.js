@@ -16,11 +16,11 @@ const ResumeSchema=new mongoose.Schema({
 
     },
     template:{
-        type:String,
+        name:String,
         colorPalette:[String],
     },
     profileInfo:{
-        ProfilePreview:String,
+        profilePreview:String,
         fullName:String,
         designation:String,
         summary:String
@@ -58,9 +58,9 @@ const ResumeSchema=new mongoose.Schema({
         liveDemo:String,}
 
     ],
-    certification:[{
+    certifications:[{
         title:String,
-        issue:String,
+        issuer:String,
         year:String,}
     ],
     languages:[{

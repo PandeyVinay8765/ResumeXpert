@@ -2,11 +2,11 @@ import User from '../models/Usermodel.js'
 import jwt  from 'jsonwebtoken'
 export const protect=async(req,res,next)=>{
     try{
-        let token=req.header.authorization;
+        let token=req.headers.authorization;
         if(token && token.startsWith('Bearer')){
-            token.split(" ")[1];
+            token = token.split(" ")[1];
             const decoded=jwt.verify(token,process.env.JWT_SECRET)
-            req.user=await User.findByID(decoded.id).select('password')
+            req.user=await User.findById(decoded.id).select('-password')
             next();
         }
         else{
